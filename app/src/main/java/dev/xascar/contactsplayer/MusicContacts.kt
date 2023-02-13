@@ -9,7 +9,13 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dev.xascar.contactsplayer.databinding.ActivityMediaContactsBinding
 
-class MediaContacts : AppCompatActivity() {
+/**
+ * The Navigation component consists of three key parts that are described below:
+ *      1) Navigation graph: An XML resource that contains all navigation-related information in one centralized location. This includes all of the individual content areas within your app, called destinations, as well as the possible paths that a user can take through your app.
+ *      2) NavHost: An empty container that displays destinations from your navigation graph. The Navigation component contains a default NavHost implementation, NavHostFragment, that displays fragment destinations.
+ *      3) NavController: An object that manages app navigation within a NavHost. The NavController orchestrates the swapping of destination content in the NavHost as users move throughout your app.
+ */
+class MusicContacts : AppCompatActivity() {
 
     private lateinit var binding: ActivityMediaContactsBinding
 

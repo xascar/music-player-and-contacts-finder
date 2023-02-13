@@ -1,11 +1,14 @@
 package dev.xascar.contactsplayer.ui.music
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import dev.xascar.contactsplayer.MusicService
 import dev.xascar.contactsplayer.databinding.FragmentMusicBinding
 
 class MusicFragment : Fragment() {
@@ -25,8 +28,19 @@ class MusicFragment : Fragment() {
 
         _binding = FragmentMusicBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        val mainActivity = activity as AppCompatActivity
+        val intent = Intent(mainActivity,MusicService::class.java)
 
-        val textView: TextView = binding.textMusic
+        binding.btnPlay.setOnClickListener {
+            intent.action = "Play"
+            mainActivity.stopService(intent)
+            mainActivity.startService(intent)
+        }
+
+        binding.btnStop.setOnClickListener {
+            intent.action = "Stop"
+            mainActivity.stopService(intent)
+        }
 
 
 
