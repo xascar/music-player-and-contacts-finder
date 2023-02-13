@@ -25,11 +25,11 @@ class MainActivity : AppCompatActivity() {
         var password = findViewById<TextInputEditText>(R.id.tiet_password).text.toString()
 
         findViewById<Button>(R.id.mb_login).setOnClickListener {
-            if (BuildConfig.DEBUG){
-                user = "admin@mail.com"
-                password = "654321"
-
-            }
+//            if (BuildConfig.DEBUG){
+//                user = "admin@mail.com"
+//                password = "654321"
+//
+//            }
             if (user.isNullOrEmpty() or password.isNullOrEmpty()) Toast.makeText(this,INCOMPLETE_DATA,Toast.LENGTH_LONG).show()
             else {
                 if (logins.containsKey(user).run { logins[user].equals(password)})
