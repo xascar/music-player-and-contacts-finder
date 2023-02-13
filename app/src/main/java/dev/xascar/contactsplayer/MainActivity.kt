@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
-import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 
 val logins: Map<String,String> = mapOf("test@mail.com" to "123456",
@@ -34,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             if (user.isNullOrEmpty() or password.isNullOrEmpty()) Toast.makeText(this,INCOMPLETE_DATA,Toast.LENGTH_LONG).show()
             else {
                 if (logins.containsKey(user).run { logins[user].equals(password)})
-                    startActivity(Intent(this, MediaContacts::class.java)).also { finish() }
+                    startActivity(Intent(this, MusicContacts::class.java)).also { finish() }
                 else
                     Toast.makeText(this,FAILURE_LOGIN,Toast.LENGTH_LONG).show()
             }
