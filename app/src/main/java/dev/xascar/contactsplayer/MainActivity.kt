@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             if (user.isNullOrEmpty() or password.isNullOrEmpty()) Toast.makeText(this,INCOMPLETE_DATA,Toast.LENGTH_LONG).show()
             else {
                 if (logins.containsKey(user).run { logins[user].equals(password)})
-                    startActivity(Intent(this, MainActivity2::class.java)).also { finish() }
+                    startActivity(Intent(this, MediaContacts::class.java)).also { finish() }
                 else
                     Toast.makeText(this,FAILURE_LOGIN,Toast.LENGTH_LONG).show()
             }
