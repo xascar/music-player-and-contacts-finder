@@ -3,6 +3,7 @@ package dev.xascar.contactsplayer
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
@@ -21,13 +22,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val user = findViewById<TextInputEditText>(R.id.tiet_user).text
-        val password = findViewById<TextInputEditText>(R.id.tiet_password).text
-        findViewById<MaterialButton>(R.id.mb_login).setOnClickListener {
+        var user = findViewById<TextInputEditText>(R.id.tiet_user).text.toString()
+        var password = findViewById<TextInputEditText>(R.id.tiet_password).text.toString()
+
+        findViewById<Button>(R.id.mb_login).setOnClickListener {
+            if (BuildConfig.DEBUG){
+                user = "admin@mail.com"
+                password = "654321"
+
+            }
             if (user.isNullOrEmpty() or password.isNullOrEmpty()) Toast.makeText(this,INCOMPLETE_DATA,Toast.LENGTH_LONG).show()
             else {
-                if (logins.containsKey(user.toString()).run { logins[user.toString()].equals(password.toString())})
-                    startActivity(Intent(this, MediaContacts::class.java)).also { finish() }
+                if (logins.containsKey(user).run { logins[user].equals(password)})
+                    startActivity(Intent(this, MainActivity2::class.java)).also { finish() }
                 else
                     Toast.makeText(this,FAILURE_LOGIN,Toast.LENGTH_LONG).show()
             }
