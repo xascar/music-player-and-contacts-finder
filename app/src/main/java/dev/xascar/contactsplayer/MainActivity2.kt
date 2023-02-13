@@ -7,21 +7,21 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import dev.xascar.contactsplayer.databinding.ActivityMediaContactsBinding
+import dev.xascar.contactsplayer.databinding.ActivityMain2Binding
 
-class MediaContacts : AppCompatActivity() {
+class MainActivity2 : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMediaContactsBinding
+    private lateinit var binding: ActivityMain2Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMediaContactsBinding.inflate(layoutInflater)
+        binding = ActivityMain2Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView
 
-        val navController = findNavController(R.id.nav_host_fragment_activity_media_contacts)
+        val navController = findNavController(R.id.nav_host_fragment_activity_main2)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
